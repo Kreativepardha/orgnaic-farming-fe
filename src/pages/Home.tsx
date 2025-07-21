@@ -8,7 +8,7 @@ export default function Home() {
     <div className="relative min-h-screen  text-charcoal overflow-hidden">
       {/* Beams in background */}
       <div className="absolute inset-0 -z-10">
-        <BackgroundBeamsWithCollision />
+        <BackgroundBeamsWithCollision children={undefined} />
       </div>
 
       {/* Page Content */}
@@ -31,9 +31,24 @@ export default function Home() {
         <div className="py-12 px-4">
           <h2 className="text-2xl font-semibold text-center mb-6">Shop by Category</h2>
           <BentoGrid>
-            <BentoGridItem title="Organic Foods" description="Fresh vegetables & fruits" className="bg-yellow-200" />
-            <BentoGridItem title="Natural Textiles" description="Eco-friendly clothing" className="bg-cyan-300" />
-            <BentoGridItem title="Cosmetics" description="Cruelty-free skincare" className="bg-teal-200" />
+                            <BentoGridItem
+                        title="Organic Foods"
+                        description="Fresh vegetables & fruits"
+                        image="/food.png"
+                        className="bg-green-100"
+                    />
+                    <BentoGridItem
+                        title="Natural Textiles"
+                        description="Eco-friendly clothing"
+                        image="/cloth.png"
+                        className="bg-green-200"
+                    />
+                    <BentoGridItem
+                        title="Cosmetics"
+                        description="Cruelty-free skincare"
+                        image="/cosmetics.jpg"
+                        className="bg-green-100"
+                    />
           </BentoGrid>
         </div>
 

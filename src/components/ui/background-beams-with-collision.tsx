@@ -10,8 +10,8 @@ export const BackgroundBeamsWithCollision = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const parentRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
+  const parentRef = useRef<HTMLDivElement>(null) as React.RefObject<HTMLDivElement>;
 
 //   const beams = [
 //     {
@@ -67,22 +67,22 @@ export const BackgroundBeamsWithCollision = ({
 //   ];
 
 const beams = [
-  // Add 12–16 beams with different spacing, height, and color gradients
-  { initialX: 0, translateX: 0, duration: 6, delay: 0, className: "h-8 bg-gradient-to-t from-red-500 via-pink-500 to-transparent" },
-  { initialX: 100, translateX: 100, duration: 8, delay: 2, className: "h-10 bg-gradient-to-t from-blue-500 via-sky-400 to-transparent" },
-  { initialX: 200, translateX: 200, duration: 10, delay: 1, className: "h-16 bg-gradient-to-t from-green-400 via-lime-400 to-transparent" },
-  { initialX: 300, translateX: 300, duration: 12, delay: 3, className: "h-6 bg-gradient-to-t from-yellow-400 via-amber-300 to-transparent" },
-  { initialX: 400, translateX: 400, duration: 7, delay: 0, className: "h-20 bg-gradient-to-t from-purple-500 via-indigo-500 to-transparent" },
-  { initialX: 500, translateX: 500, duration: 5, delay: 2, className: "h-14 bg-gradient-to-t from-emerald-400 via-teal-400 to-transparent" },
-  { initialX: 600, translateX: 600, duration: 9, delay: 4, className: "h-12 bg-gradient-to-t from-fuchsia-500 via-pink-400 to-transparent" },
-  { initialX: 700, translateX: 700, duration: 11, delay: 1, className: "h-10 bg-gradient-to-t from-rose-400 via-pink-300 to-transparent" },
-  { initialX: 800, translateX: 800, duration: 13, delay: 3, className: "h-16 bg-gradient-to-t from-cyan-400 via-blue-400 to-transparent" },
-  { initialX: 900, translateX: 900, duration: 6, delay: 1, className: "h-12 bg-gradient-to-t from-orange-400 via-yellow-300 to-transparent" },
-  { initialX: 1000, translateX: 1000, duration: 7, delay: 2, className: "h-6 bg-gradient-to-t from-violet-500 via-purple-400 to-transparent" },
-  { initialX: 1100, translateX: 1100, duration: 10, delay: 3, className: "h-14 bg-gradient-to-t from-lime-400 via-green-300 to-transparent" },
-  { initialX: 1200, translateX: 1200, duration: 8, delay: 0, className: "h-10 bg-gradient-to-t from-amber-400 via-orange-300 to-transparent" },
-  { initialX: 1300, translateX: 1300, duration: 6, delay: 4, className: "h-18 bg-gradient-to-t from-teal-500 via-cyan-400 to-transparent" },
+  { initialX: 0, translateX: 0, duration: 6, delay: 0, className: "h-8 bg-gradient-to-t from-emerald-600 via-green-400 to-transparent" },
+  { initialX: 100, translateX: 100, duration: 8, delay: 2, className: "h-10 bg-gradient-to-t from-lime-600 via-lime-300 to-transparent" },
+  { initialX: 200, translateX: 200, duration: 10, delay: 1, className: "h-16 bg-gradient-to-t from-yellow-700 via-amber-400 to-transparent" },
+  { initialX: 300, translateX: 300, duration: 12, delay: 3, className: "h-6 bg-gradient-to-t from-stone-600 via-stone-300 to-transparent" },
+  { initialX: 400, translateX: 400, duration: 7, delay: 0, className: "h-20 bg-gradient-to-t from-green-700 via-teal-400 to-transparent" },
+  { initialX: 500, translateX: 500, duration: 5, delay: 2, className: "h-14 bg-gradient-to-t from-olive-700 via-emerald-300 to-transparent" },
+  { initialX: 600, translateX: 600, duration: 9, delay: 4, className: "h-12 bg-gradient-to-t from-amber-700 via-yellow-500 to-transparent" },
+  { initialX: 700, translateX: 700, duration: 11, delay: 1, className: "h-10 bg-gradient-to-t from-green-800 via-lime-400 to-transparent" },
+  { initialX: 800, translateX: 800, duration: 13, delay: 3, className: "h-16 bg-gradient-to-t from-neutral-700 via-zinc-400 to-transparent" },
+  { initialX: 900, translateX: 900, duration: 6, delay: 1, className: "h-12 bg-gradient-to-t from-teal-700 via-emerald-500 to-transparent" },
+  { initialX: 1000, translateX: 1000, duration: 7, delay: 2, className: "h-6 bg-gradient-to-t from-orange-800 via-yellow-400 to-transparent" },
+  { initialX: 1100, translateX: 1100, duration: 10, delay: 3, className: "h-14 bg-gradient-to-t from-stone-700 via-stone-400 to-transparent" },
+  { initialX: 1200, translateX: 1200, duration: 8, delay: 0, className: "h-10 bg-gradient-to-t from-amber-600 via-amber-300 to-transparent" },
+  { initialX: 1300, translateX: 1300, duration: 6, delay: 4, className: "h-18 bg-gradient-to-t from-lime-700 via-lime-300 to-transparent" },
 ];
+
 
   return (
     <div
@@ -132,7 +132,7 @@ const CollisionMechanism = React.forwardRef<
       repeatDelay?: number;
     };
   }
->(({ parentRef, containerRef, beamOptions = {} }, ref) => {
+>(({ parentRef, containerRef, beamOptions = {} }) => {
   const beamRef = useRef<HTMLDivElement>(null);
   const [collision, setCollision] = useState<{
     detected: boolean;
